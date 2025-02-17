@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horoscope Detector</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        input, button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        input {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        button {
+            background: #8e44ad;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #732d91;
+        }
+        #result, #horoscopeDescription {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Discover Your Horoscope</h1>
+        <label for="birthdate">Enter Your Birthdate:</label>
+        <input type="date" id="birthdate">
+        <button onclick="detectHoroscope()">Find My Sign</button>
+        <div id="result"></div>
+        <div id="horoscopeDescription"></div>
+    </div>
+    <script>
+        function detectHoroscope() {
+            const birthdate = document.getElementById("birthdate").value;
+            if (!birthdate) {
+                alert("Please enter your birthdate.");
+                return;
+            }
+
+            const date = new Date(birthdate);
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            
+            let sign = "";
+            let description = "";
+
+            if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) {
+                sign = "Aquarius";
+                description = "Innovative, independent, and humanitarian. You love to think outside the box.";
+            } else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
+                sign = "Pisces";
+                description = "Empathetic, artistic, and dreamy. You are deeply intuitive and sensitive.";
+            } else if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) {
+                sign = "Aries";
+                description = "Bold, energetic, and confident. You are a natural-born leader.";
+            } else if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) {
+                sign = "Taurus";
+                description = "Reliable, patient, and devoted. You appreciate the finer things in life.";
+            } else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
+                sign = "Gemini";
+                description = "Witty, curious, and adaptable. You thrive on communication and variety.";
+            } else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) {
+                sign = "Cancer";
+                description = "Nurturing, emotional, and intuitive. Family and home mean everything to you.";
+            } else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) {
+                sign = "Leo";
+                description = "Charismatic, ambitious, and passionate. You love to shine and inspire others.";
+            } else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) {
+                sign = "Virgo";
+                description = "Practical, analytical, and hardworking. You have an eye for detail.";
+            } else if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) {
+                sign = "Libra";
+                description = "Charming, diplomatic, and fair-minded. You seek harmony in all things.";
+            } else if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) {
+                sign = "Scorpio";
+                description = "Passionate, mysterious, and determined. You are deeply intense and loyal.";
+            } else if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) {
+                sign = "Sagittarius";
+                description = "Adventurous, optimistic, and philosophical. You love to explore and learn.";
+            } else if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) {
+                sign = "Capricorn";
+                description = "Disciplined, responsible, and ambitious. You are determined to succeed.";
+            }
+
+            document.getElementById("result").innerHTML = `<h2>Your Zodiac Sign: ${sign}</h2>`;
+            document.getElementById("horoscopeDescription").innerHTML = `<p>${description}</p>`;
+        }
+    </script>
+</body>
+</html>
