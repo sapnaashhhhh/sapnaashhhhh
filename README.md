@@ -9,11 +9,6 @@
 - 🌱 Learning frontend projects with mystical & vintage vibes
 - 🎨 Lover of design, soft animations, and galaxy themes
 
-### 🔭 Projects I'm Working On
-- ✨ Zodiac Horoscope Website
-- 🔮 Spinning Fortune Wheel UI
-- 🕸️ Personal web portfolio (coming soon)
-
 ### 🛠️ Languages & Tools
 HTML • CSS • JS
 
